@@ -4,3 +4,12 @@ publish = ".next"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+# package = "../../dev/next-runtime-minimal"
+
+[build.environment]
+NETLIFY_OTLP_TRACE_EXPORTER_URL = "https://api.honeycomb.io/v1/traces"
+# OTEL_EXPORTER_OTLP_ENDPOINT = "https://api.honeycomb.io"
+OTEL_EXPORTER_OTLP_HEADERS = "x-honeycomb-team=hcaik_01hwwz7gvc6vrevvx8etqz2430rkgyxmxfz1cgp7tnf1zt5qek9t31avhb,x-honeycomb-dataset=Next runtime"
+# OTEL_SERVICE_NAME = "Next runtime"
+NETLIFY_NEXT_PERF_DEBUG = "1"
+# OTEL_LOG_LEVEL = "debug"

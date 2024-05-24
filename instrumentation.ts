@@ -17,6 +17,7 @@ class CompactConsoleExporter {
   }
 
   _sendSpans(spans, done = undefined) {
+    console.log("_sendSpans", spans.length);
     for (const span of spans) {
       const startDate = new Date(
         span.startTime[0] * Math.pow(10, 3) +
@@ -38,7 +39,10 @@ class CompactConsoleExporter {
   }
 }
 
+console.log("hi", process.pid);
+
 registerOTel({
   serviceName: "next-test-app",
   traceExporter: new CompactConsoleExporter(),
+  traceSampler: "always_on",
 });
