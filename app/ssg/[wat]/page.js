@@ -9,6 +9,8 @@ export async function generateStaticParams() {
 }
 
 export default function Home({ params }) {
+  throw new Error("no prerender");
+
   const paragraphs = faker.lorem
     .paragraphs({ min: 500, max: 1000 })
     .split(`\n`);
